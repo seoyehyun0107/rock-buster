@@ -6,7 +6,7 @@
 <title>Orbit Rock Buster</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Fredoka:wght@500;600;700&family=Pacifico&family=Jua&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Fredoka:wght@500;600;700&family=Pacifico&family=Jua&family=Gaegu:wght@700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 <style>
@@ -60,15 +60,27 @@ html,body{height:100%;margin:0;background:var(--space-900);color:var(--ink);over
 /* ---------- overlays ---------- */
 .screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-block:24px;padding-inline:16px;overflow-y:auto}
 .screen--dim{background:rgba(10,4,30,.62);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
-.title-wrap{display:flex;align-items:center;justify-content:center;gap:clamp(8px,4vw,48px);flex-wrap:wrap;max-width:980px}
-.title-robot{width:clamp(120px,22vw,230px);height:auto;filter:drop-shadow(0 18px 24px rgba(0,0,0,.45));animation:float 4s ease-in-out infinite}
-.title-col{display:flex;flex-direction:column;align-items:center;gap:22px;min-width:0}
-.steps{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:0;padding:0;list-style:none;max-width:560px}
-.steps li{display:flex;align-items:center;gap:8px;padding:9px 14px 9px 9px;border-radius:999px;background:rgba(43,18,96,.72);
-  border:2px solid var(--line);font:600 15px/1.25 var(--font-ui);color:var(--ink-soft)}
-.steps b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;flex:none;font:400 15px/1 var(--font-display);
+#titleScr{align-items:flex-start}
+.title{margin:auto;display:flex;flex-direction:column;align-items:center;gap:clamp(14px,2.4vh,24px);width:100%;max-width:1000px}
+.hero{display:flex;align-items:center;justify-content:center;gap:clamp(0px,1vw,12px);margin-left:clamp(-120px,-6vw,0px)}
+.title-robot{height:clamp(200px,48vh,470px);width:auto;flex:none;margin-right:clamp(-40px,-2.5vw,0px);position:relative;z-index:1;
+  filter:drop-shadow(0 18px 24px rgba(0,0,0,.45)) drop-shadow(0 0 30px rgba(155,231,255,.18));animation:float 4s ease-in-out infinite}
+.hero-text{display:flex;flex-direction:column;align-items:center;min-width:0;position:relative;z-index:2}
+.logo-ko{margin:0;display:flex;flex-direction:column;align-items:center;font:400 clamp(64px,11.5vw,168px)/.98 'Jua',var(--font-display);letter-spacing:-.01em;
+  -webkit-text-stroke:clamp(5px,.7vw,10px) #3A1F8F;paint-order:stroke fill;
+  filter:drop-shadow(0 5px 0 #6A2BD9) drop-shadow(0 10px 0 #2A1468) drop-shadow(0 0 30px rgba(120,90,255,.55))}
+.logo-ko span{display:block;-webkit-background-clip:text;background-clip:text;color:transparent;padding-inline:.04em}
+.logo-ko .l1{background-image:linear-gradient(180deg,#E6FAFF 0%,#9BE7FF 35%,#4FA8FF 75%,#5D7BFF 100%)}
+.logo-ko .l2{font-size:1.04em;background-image:linear-gradient(180deg,#FFF6B8 0%,#FFE14D 35%,#FFB21F 75%,#FF8A12 100%)}
+.script-ko{margin:clamp(4px,1vh,10px) 0 0;font:700 clamp(24px,3.6vw,46px)/1.15 'Gaegu','Jua',cursive;color:#FF8BF5;transform:rotate(-3deg);text-align:center;
+  text-shadow:0 3px 0 #4A0F70,0 0 14px rgba(240,90,255,.85),0 0 30px rgba(217,75,240,.6);text-wrap:balance}
+.btn--start{min-width:min(270px,80vw);height:84px;font-size:34px;border-radius:30px;margin-top:clamp(0px,1vh,8px)}
+.steps{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:0;padding:0;list-style:none;max-width:760px}
+.steps li{display:flex;align-items:center;gap:12px;padding:10px 22px 10px 10px;border-radius:999px;background:rgba(36,14,84,.72);
+  border:2px solid rgba(155,190,255,.45);font:700 clamp(14px,1.5vw,18px)/1.25 var(--font-ui);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 16px rgba(8,3,26,.35);backdrop-filter:blur(3px)}
+.steps b{display:grid;place-items:center;width:32px;height:32px;font-size:17px!important;border-radius:50%;flex:none;font:400 15px/1 var(--font-display);
   color:var(--yellow-ink);background:linear-gradient(180deg,var(--yellow-top),var(--yellow));box-shadow:0 2px 0 var(--yellow-edge)}
-.best{font:600 14px/1 var(--font-ui);letter-spacing:.12em;color:var(--ink-soft)}
+.best{font:700 15px/1 var(--font-ui);letter-spacing:.14em;color:#C9D4FF;text-shadow:0 2px 0 #1A0B3D}
 .best strong{color:var(--yellow);font-family:var(--font-display);font-weight:400;font-size:18px;letter-spacing:.04em;margin-left:6px}
 
 .panel{width:100%;max-width:420px;text-align:center;padding:30px 24px 32px;border-radius:32px;
@@ -182,6 +194,7 @@ html,body{height:100%;margin:0;background:var(--space-900);color:var(--ink);over
 .checks li.ok::after{content:'✓ OK';color:var(--yellow)}
 .pilot-tag{font:600 12px/1 var(--font-ui);letter-spacing:.16em;color:var(--ink-soft);text-transform:uppercase}
 .pilot-tag b{font:400 16px/1 'Jua',var(--font-display);letter-spacing:.02em;color:#fff;margin-left:6px;text-transform:none}
+@media (max-width:640px){.hero{flex-direction:column;margin-left:0}.title-robot{height:clamp(150px,26vh,220px);margin:0 0 -10px}.logo-ko{font-size:clamp(60px,19vw,96px)}.steps li{padding-right:16px}}
 @media (max-width:760px){.setup{grid-template-columns:1fr}#pv{height:min(30vh,260px)}.stage-box{padding-top:40px}}
 @media (max-width:420px){.sw{width:36px;height:36px}.swatches{gap:10px}.tile img{width:34px;height:34px}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
@@ -230,21 +243,21 @@ html,body{height:100%;margin:0;background:var(--space-900);color:var(--ink);over
 
   <!-- TITLE -->
   <section class="screen" id="titleScr">
-    <div class="title-wrap pop">
-      <img class="title-robot" id="titleRobot" alt="로봇 파일럿 코비">
-      <div class="title-col">
-        <div style="text-align:center">
-          <h1 class="logo">ROCK<span>BUSTER</span></h1>
-          <p class="script">Earth Orbit Mission</p>
+    <div class="title pop">
+      <div class="hero">
+        <img class="title-robot" id="titleRobot" alt="로봇 파일럿">
+        <div class="hero-text">
+          <h1 class="logo-ko"><span class="l1">우주를</span><span class="l2">지켜라!</span></h1>
+          <p class="script-ko">우주가 멸망하지 않도록 도와주세요!</p>
         </div>
-        <ol class="steps">
-          <li><b>1</b>좌우 조준선을 타이밍 맞춰 멈추기</li>
-          <li><b>2</b>상하 조준선 멈추면 레이저 발사</li>
-          <li><b>3</b>빛나는 약점에 가까울수록 PERFECT</li>
-        </ol>
-        <button class="btn btn--lg" id="startBtn">START</button>
-        <div class="best">BEST<strong id="bestTitle">0</strong></div>
       </div>
+      <ol class="steps">
+        <li><b>1</b>좌우 조준선을 타이밍 맞춰 멈추기</li>
+        <li><b>2</b>상하 조준선 멈추면 레이저 발사</li>
+        <li><b>3</b>빛나는 약점에 가까울수록 PERFECT</li>
+      </ol>
+      <button class="btn btn--lg btn--start" id="startBtn">START</button>
+      <div class="best">BEST<strong id="bestTitle">0</strong></div>
     </div>
   </section>
 
@@ -480,7 +493,7 @@ function makeRockArt(Ru,tone=0){
   return{c,half,pts};}
 
 /* ---------------- background ---------------- */
-let stars=[],shooters=[],debris=[];
+let stars=[],shooters=[],debris=[];const EV={x:0,y:0};
 function makeStars(){stars=[...Array(Math.round(W*H/5200))].map(()=>({x:rnd(1),y:rnd(1),r:rnd(.4,1.7),p:rnd(TAU),s:rnd(.6,2.2),sp:Math.random()<.06}));}
 debris=[...Array(7)].map((_,i)=>({Ru:rnd(10,22),art:null,a:i/7*TAU+rnd(.3),sp:rnd(.03,.07)*(Math.random()<.5?1:-1),rot:rnd(TAU),vr:rnd(-.6,.6),dr:rnd(.86,1.12)}));
 debris.forEach(d=>d.art=makeRockArt(d.Ru,Math.random()<.5?1:0));
@@ -644,6 +657,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden)pause(true)
 /* ---------------- update ---------------- */
 function update(dt){
   G.time+=dt;
+  {const ti=['title','setup','loading'].includes(G.mode);const tx=ti?W*.5-earth.x:0,ty=ti?H*.14:0,k=1-Math.exp(-dt*4);EV.x+=(tx-EV.x)*k;EV.y+=(ty-EV.y)*k;}
   for(const d of debris){d.a+=d.sp*dt;d.rot+=d.vr*dt;}
   if(Math.random()<dt*.25&&shooters.length<2)shooters.push({x:rnd(W*.3,W*1.1),y:rnd(-20,H*.25),life:1.1,max:1.1});
   shooters=shooters.filter(s=>(s.life-=dt)>0);
@@ -771,10 +785,10 @@ function drawFX(){
 let last=performance.now();
 function frame(now){const dt=Math.min(.05,(now-last)/1000);last=now;update(dt);
   X.save();if(G.shake>0&&!reduced)X.translate(rnd(-G.shake,G.shake)*.6,rnd(-G.shake,G.shake)*.6);
-  drawBG();drawOrbit();drawEarth();drawDebris();drawRock();drawRobot();drawFX();X.restore();
+  drawBG();X.save();X.translate(EV.x,EV.y);drawOrbit();drawEarth();drawDebris();X.restore();drawRock();drawRobot();drawFX();X.restore();
   if(G.flash>0){X.fillStyle=`rgba(${G.flashCol},${G.flash*.6})`;X.fillRect(0,0,W,H);}
   requestAnimationFrame(frame);}
-resize();requestAnimationFrame(frame);
+resize();EV.x=W*.5-earth.x;EV.y=H*.14;requestAnimationFrame(frame);
 })();
 </script>
 
